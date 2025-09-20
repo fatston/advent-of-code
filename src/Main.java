@@ -13,6 +13,7 @@ public class Main {
         System.out.println("day 2 part 1: " + day2.part1());
         System.out.println("day 2 part 2: " + day2.part2("src/input/day2.txt"));
         System.out.println("day 2 part 2 test: " + day2.part2("src/input/day2_test.txt"));
+        // https://adventofcode.com/2024/day/2
         // todo write unit tests :)
         // todo figure out how to do part two!
     }
