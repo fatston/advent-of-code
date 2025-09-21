@@ -27,40 +27,32 @@ public class Day2 {
         return safeCount;
     }
 
-    public Integer part2(String path) {
+    public Integer part2() {
+        var path = "src/input/day2.txt";
         var data = FileReaderUtil.readFileToList(path);
         var safeCount = 0;
         for (var list : data) {
             if (list.get(0).equals(list.get(1))) {
-                if (list.get(1) > list.get(2)) {
-                    Collections.reverse(list);
-                }
-            } else if (list.get(0) > list.get(1)) {
+                continue; // unsafe
+            }
+            if (list.get(0) > list.get(1)) {
                 Collections.reverse(list);
             }
             // now should be all increasing
-            if (isLenientlySafeIncreasing(list)) {
+            if (isSafeIncreasingLenient(list)) {
                 safeCount += 1;
             }
         }
         return safeCount;
     }
 
-    public boolean isLenientlySafeIncreasing(List<Integer> l) {
-        var prev = l.get(0);
-        var isChanceUsed = false;
-        for (int i = 1; i < l.size(); i++) {
-            var curr = l.get(i);
-            if (prev >= curr || Math.abs(prev-curr) > 3) {
-                if (isChanceUsed) {
-                    return false;
-                } else {
-                    isChanceUsed = true;
-                }
-            }
-            prev = curr;
-        }
-        return true;
+    public boolean isSafeIncreasingLenient(List<Integer> l) {
+        // todo do this part!
+        return false;
+    }
+
+    public boolean isStepOkay(Integer prev, Integer curr) {
+        return prev < curr && curr - prev < 3;
     }
 
     public boolean isSafeIncreasing(List<Integer> l) {
