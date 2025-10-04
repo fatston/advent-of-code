@@ -21,4 +21,12 @@ public class FileReaderUtil {
                                    .collect(Collectors.toList()))
                 .collect(Collectors.toList());
     }
+    public static List<String> readFileToStringList(String pathString) {
+        var path = Paths.get(pathString);
+        try {
+            return Files.readAllLines(path);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
