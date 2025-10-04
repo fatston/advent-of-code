@@ -16,6 +16,7 @@ public class Main {
 
         var day3 = new Day3("src/input/day3.txt");
         System.out.println("day 3 part 1: " + day3.partOne());
+        System.out.println("day 3 part 2: " + day3.partTwo());
 
     }
 }

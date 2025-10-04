@@ -26,4 +26,26 @@ public class Day3 {
         }
         return result;
     }
+
+    public Integer partTwo() {
+        var mulPattern = Pattern.compile("mul\\((\\d+),(\\d+)\\)|do\\(\\)|don't\\(\\)");
+        var result = 0;
+        var isDo = true;
+        for (String s : input) {
+            var matcher = mulPattern.matcher(s);
+            while (matcher.find()) {
+                String tok = matcher.group();
+                if ("do()".equals(tok)) {
+                    isDo = true;
+                } else if ("don't()".equals(tok)) {
+                    isDo = false;
+                } else if (isDo) {
+                    int x = Integer.parseInt(matcher.group(1));
+                    int y = Integer.parseInt(matcher.group(2));
+                    result += x * y;
+                }
+            }
+        }
+        return result;
+    }
 }
