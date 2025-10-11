@@ -66,6 +66,44 @@ public class Day4 {
         return count;
     }
 
+    /**
+     * find A
+     * find diagonal neighbour M
+     * opposite must be S
+     * find other diagonal neighbour M
+     * opposite must be S
+     * @return
+     */
+    public Integer partTwo() {
+        var op = 0;
+        for (int i = 1; i < iMax-1; i++) {
+            for (int j = 1; j < jMax-1; j++) {
+                if (input.get(i).charAt(j) == 'A') {
+                    if (isXmas(input,i,j)) {
+                        op++;
+                    }
+                }
+            }
+        }
+        return op;
+    }
+
+    private Boolean isXmas(List<String> grid, Integer i, Integer j) {
+        if (i == 0 || j == 0 || i == iMax-1 || j == jMax-1) {
+            return false;
+        }
+        var tl = grid.get(i-1).charAt(j-1);
+        var br = grid.get(i+1).charAt(j+1);
+        var tr = grid.get(i-1).charAt(j+1);
+        var bl = grid.get(i+1).charAt(j-1);
+
+        return isMS(tl,br) && isMS(tr,bl);
+    }
+
+    private Boolean isMS(Character a, Character b) {
+        return (a == 'M' && b == 'S') || (a == 'S' && b == 'M');
+    }
+
     private String getAcross(Integer i, List<String> grid) {
         return grid.get(i);
     }
