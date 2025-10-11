@@ -20,9 +20,9 @@ public class Main {
         System.out.println("day 3 part 2: " + day3.partTwo());
 
         var day4Test = new Day4("src/input/day4_test.txt");
-        System.out.println("day 4 part 1 test: " + day4Test.partOne() + " should be 18");
+        System.out.println("day 4 part 1 test: " + day4Test.partOne() + " = 18");
         var day4 = new Day4("src/input/day4.txt");
-        System.out.println("day 4 part 1: " + day4.partOne());
+        System.out.println("day 4 part 1: " + day4.partOne() + " = 2685");
 
     }
 }

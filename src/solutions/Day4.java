@@ -60,7 +60,8 @@ public class Day4 {
         // pass all lists into countXmases and return
         var count = 0;
         for (String s : fullList) {
-            count += countXmases(s);
+            count += countXmases(s, Pattern.compile("XMAS"));
+            count += countXmases(s, Pattern.compile("SAMX"));
         }
         return count;
     }
@@ -103,8 +104,7 @@ public class Day4 {
         return sb.toString();
     }
 
-    private Integer countXmases(String s) {
-        var pattern = Pattern.compile("(?=(XMAS|SAMX))");
+    private Integer countXmases(String s, Pattern pattern) {
         var matcher = pattern.matcher(s);
         var count = 0;
         while (matcher.find()) count++;
