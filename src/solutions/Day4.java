@@ -104,10 +104,6 @@ public class Day4 {
         return (a == 'M' && b == 'S') || (a == 'S' && b == 'M');
     }
 
-    private String getAcross(Integer i, List<String> grid) {
-        return grid.get(i);
-    }
-
     private String getDown(Integer j, List<String> grid) {
         var sb = new StringBuilder();
         for (int i = 0; i < iMax; i++) {
